@@ -1,7 +1,7 @@
 {
   "name": "too-much-sunlight-syntax",
   "theme": "syntax",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A light theme for desks that are too close to the window",
   "keywords": [
     "syntax",
