@@ -1,0 +1,118 @@
+@import "syntax-variables";
+
+atom-text-editor, :host {
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
+  .wrap-guide { background-color: @syntax-wrap-guide-color; }
+  .indent-guide { color: @syntax-indent-guide-color; }
+  .invisible-character { color: @syntax-invisible-character-color; }
+  .gutter {
+    background-color: @syntax-gutter-background-color;
+    color: @syntax-gutter-text-color;
+    .line-number {
+      &.cursor-line {
+        background-color: @syntax-gutter-background-color-selected;
+        color: @syntax-gutter-text-color-selected;
+      }
+      &.cursor-line-no-selection { color: @syntax-gutter-text-color-selected;}
+    }
+  }
+  .gutter .line-number.folded,
+  .gutter .line-number:after,
+  .fold-marker:after { color: @ui-4; }
+  .invisible { color: @syntax-text-color; }
+  .cursor { color: @syntax-cursor-color; }
+  .selection .region { background-color: @syntax-selection-color; }
+}
+
+atom-text-editor .search-results .marker .region,
+:host .search-results .marker .region {
+  background-color: transparent;
+  border: 1px solid @syntax-result-marker-color;
+}
+
+atom-text-editor .search-results .marker.current-result .region,
+:host .search-results .marker.current-result .region {
+  border: 1px solid @syntax-result-marker-color-selected;
+}
+
+
+/* Base styles. */
+
+.comment { color: @blue; }
+
+.keyword {
+    color: @red;
+    &.operator { color: @syntax-text-color; }
+    &.other { color: @syntax-text-color; }
+}
+
+.storage { color: @purple; }
+
+.constant { color: @ui-3; }
+
+.invalid.illegal {
+    background-color: @red;
+    color: @syntax-background-color;
+}
+
+.string { color: @ui-3; }
+
+.variable {
+    color: @syntax-text-color;
+    &.parameter { color: @pink; }
+}
+
+.support { color: @syntax-text-color; }
+
+atom-text-editor[mini] .scroll-view,
+:host([mini]) .scroll-view {
+  padding-left: 1px;
+}
+
+
+/* Python specific styles. */
+.python {
+    &.string.block {
+        color: @brown;
+        .punctuation { color: @brown; }
+    }
+    &.support.function { color: @purple; }
+    &.entity {
+        &.name { color: @purple; }
+        &.inherited-class { color: @pink; }
+    }
+}
+
+
+/* Mark-up specific styles. */
+.html {
+    &.meta.tag {
+        color: @red;
+        .string { color: @pink; }
+    }
+    &.entity {
+        &.tag { color: @purple; }
+        &.attribute-name { color: @purple; }
+    }
+}
+
+
+/* CSS specific styles. */
+.css {
+    &.entity {
+        &.tag { color: @red; }
+        &.class { color: @purple; }
+        &.id { color: @pink; }
+    }
+    &.support.property-name { color: @brown; }
+}
+
+
+/* Javascript specific styles. */
+.js {
+    &.storage.type.var { color: @red; }
+    &.meta.function.js {
+        .entity.name.function { color: @purple; }
+    }
+}
